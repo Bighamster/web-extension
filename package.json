@@ -1,32 +1,47 @@
 {
-  "name": "vite-web-extension",
-  "version": "1.0.0",
-  "displayName": "Vite Web Extension",
-  "author": "@samrum/vite-plugin-web-extension",
-  "description": "A @samrum/vite-plugin-web-extension web extension",
+  "name": "crypto-wallet",
+  "displayName": "Crypto wallet Extension",
+  "description": "Crypto wallet browser extension",
+  "version": "0.0.1",
+  "author": "Levefi",
   "scripts": {
     "build": "vite build",
     "watch": "vite build --watch",
     "dev": "vite",
-    "serve:firefox": "web-ext run --start-url \"about:debugging#/runtime/this-firefox\"  --source-dir ./dist/",
-    "serve:chrome": "web-ext run -t chromium --start-url \"https://google.com\" --source-dir ./dist/",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "serve:firefox": "web-ext run --start-url \"about:debugging#/runtime/this-firefox\"  --source-dir ./dist/ --browser-console",
+    "serve:chrome": "web-ext run -t chromium --start-url \"https://google.com\" --source-dir ./dist/ --browser-console",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint .",
+    "format": "prettier --write --plugin-search-dir=. .",
+    "typesafe-i18n": "typesafe-i18n"
   },
   "license": "MIT",
   "devDependencies": {
+    "@levefi/uikit": "^1.0.43",
     "@samrum/vite-plugin-web-extension": "^1.0.0",
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.41",
     "@tsconfig/svelte": "^2.0.1",
     "@types/webextension-polyfill": "^0.8.3",
+    "autoprefixer": "^10.4.8",
+    "crypto-js": "^4.1.1",
+    "cssnano": "^5.1.13",
+    "postcss-import": "^15.0.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-nested-ancestors": "^3.0.0",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.7",
     "svelte-preprocess": "^4.9.8",
+    "tailwindcss": "^3.1.8",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4",
     "vite": "~2.9.0",
-    "web-ext": "^6.6.0"
+    "web-ext": "^6.6.0",
+    "webext-bridge": "^5.0.5"
   },
   "dependencies": {
+    "ethers": "^5.7.0",
+    "svelte-routing": "^1.6.0",
+    "typesafe-i18n": "^5.12.0",
     "webextension-polyfill": "^0.9.0"
   },
   "type": "module"

@@ -1,9 +1,9 @@
 <script lang="ts">
-import PageContent from "~/lib/PageContent.svelte";
+
 </script>
 
 <main>
-  <PageContent> Options </PageContent>
+  <h1> Options </h1>
 </main>
 
 <style>

@@ -1,6 +1,9 @@
 import pkg from "../package.json";
 
 const manifest = {
+  permissions: [
+    "storage"
+  ],
   action: {
     default_icon: {
       16: "icons/16.png",
@@ -8,14 +11,14 @@ const manifest = {
       32: "icons/32.png",
       38: "icons/38.png",
     },
-    default_popup: "src/entries/popup/index.html",
+    default_popup: "src/routes/index.html",
   },
   background: {
-    service_worker: "src/entries/background/main.ts",
+    service_worker: "src/entries/background/main.js",
   },
   content_scripts: [
     {
-      js: ["src/entries/contentScript/primary/main.ts"],
+      js: ["src/entries/contentScript/primary/main.js"],
       matches: ["*://*/*"],
     },
   ],
@@ -38,7 +41,7 @@ const manifest = {
   },
 };
 
-export function getManifest(): chrome.runtime.ManifestV3 {
+export function getManifest() {
   return {
     author: pkg.author,
     description: pkg.description,
